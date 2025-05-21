@@ -1,0 +1,1 @@
+// Хук useProducts() у ProductList
