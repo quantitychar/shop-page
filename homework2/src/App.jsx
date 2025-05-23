@@ -7,17 +7,23 @@ import { useEffect } from "react";
 import ProductsRepository from "./repositories/ProductsRepository";
 import CacheRepoDecorator from "./repositories/decorators/CacheRepoDecorator";
 import ProductList from "./components/ProductList/ProductList";
+import Header from "./components/Header/Header";
+import HeroBanner from "./components/HeroBanner/HeroBanner";
 
 function App() {
   useEffect(() => {
     const repo = new CacheRepoDecorator(new ProductsRepository(), 30_000);
-    repo.getAll().then(console.log); // має вивести масив Product
+    repo.getAll().then(console.log);
   }, []);
 
   return (
-    <main className="container mx-auto py-8">
-      <ProductList />
-    </main>
+    <>
+      <Header />
+      <main className="container mx-auto py-8">
+        <HeroBanner />
+        <ProductList />
+      </main>
+    </>
   );
 
   // const [modal, setOpen] = useState(null);
