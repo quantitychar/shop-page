@@ -3,7 +3,7 @@
     "id": "p-001",
     "title": "Retro T-Shirt",
     "price": 499,
-    "image": "/assets/tshirt.jpg",
+    "image": "https://picsum.photos/400?random=1",
     "sku": "TSH-RT-21",
     "copy": "100 % бавовна, oversize"
   },

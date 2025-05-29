@@ -7,37 +7,9 @@
   }
 
   .slide {
-    display: flex;
-    min-height: 440px;
-    padding: 60px 72px;
-    overflow: hidden;
-    border-radius: 12px;
-
-    /* контент ліворуч залишаємо як було */
-    &__content {
-      max-width: 420px;
-      z-index: 1;
-    }
-
-    /* 🎯 ОНОВЛЕНО: зображення більше не позиціонуємо абсолютно */
-    &__img {
-      flex: 1; /* займає всю доступну праву частину */
-      height: 100%;
-      object-fit: cover; /* заповнює блок, обрізається рівномірно */
-      object-position: right center; /* фокус на моделі */
-    }
-  }
-
-  /* стрілки можна трохи змістити, щоб не наїжджали на контент */
-  .swiper-button-next,
-  .swiper-button-prev {
-    transform: translateY(-50%);
-    top: 50%;
-  }
-
-  .slide {
     position: relative;
     display: flex;
+    color: #fff;
     min-height: 420px;
     padding: 60px 72px;
     overflow: hidden; /* щоб не випирала */
@@ -46,10 +18,10 @@
       position: absolute;
       right: 0;
       bottom: 0; /* або top: 50%; transform: translateY(-50%) */
-      width: 50vw; /* половина екрана */
+      width: 100vw; /* половина екрана */
       height: 100%;
       object-fit: cover;
-      object-position: right center; /* фокус на моделі */
+      // object-position: right center; /* фокус на моделі */
       pointer-events: none;
     }
     &__content {
@@ -131,7 +103,6 @@
   margin-bottom: 48px;
 }
 
-/* кнопка (як у Figma) */
 .btn {
   background: #fff;
   color: #000;

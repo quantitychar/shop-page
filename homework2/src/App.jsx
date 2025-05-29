@@ -9,19 +9,23 @@ import CacheRepoDecorator from "./repositories/decorators/CacheRepoDecorator";
 import ProductList from "./components/ProductList/ProductList";
 import Header from "./components/Header/Header";
 import HeroBanner from "./components/HeroBanner/HeroBanner";
+import ViewsPicturesSection from "./components/ViewsPicturesSection/ViewsPicturesSection";
+import useProducts from "./hooks/UseProducts";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   useEffect(() => {
     const repo = new CacheRepoDecorator(new ProductsRepository(), 30_000);
     repo.getAll().then(console.log);
   }, []);
-
+  const { data } = useProducts();
   return (
     <>
       <Header />
       <main className="container mx-auto py-8">
         <HeroBanner />
-        <ProductList />
+        {data && <ViewsPicturesSection items={data} />}
+        <Footer />
       </main>
     </>
   );

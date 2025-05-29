@@ -1,4 +1,4 @@
-import { productsRepo } from "./../repositories/index"; // шляхи з '@' працюють, якщо в vite.config є alias
+import { productsRepo } from "./../repositories/index";
 import { useEffect, useState } from "react";
 
 export default function useProducts() {
@@ -13,7 +13,7 @@ export default function useProducts() {
         (e) => !cancelled && set({ data: null, error: e, loading: false })
       );
     return () => (cancelled = true);
-  }, []); // ⚠️ більше НІЯКОЇ мемоізації тут не треба
+  }, []);
 
   return state;
 }

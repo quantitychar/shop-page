@@ -9,22 +9,26 @@ import "swiper/css/pagination";
 import banner from "./imgs/banner.jpg"; // імпорт зображення
 import "./HeroBanner.scss"; // власні стилі
 
-const slides = [
+// slides.js
+export const slides = [
   {
-    title: "Summer Value Pack",
-    subtitle: "T-Shirt / Tops",
+    subtitle: "Urban / Portraits",
+
+    title: "Summer Essentials",
+
     tagline: "cool / colorful / comfy",
-    cta: "Shop Now",
-    // bg: "#00AEEF",
+
+    cta: "Explore",
+
+    bg: "#00AEEF",
   },
   {
-    title: "Winter Essentials",
-    subtitle: "Jackets & Hoodies",
-    tagline: "warm / cozy / stylish",
-    cta: "Explore",
-    // bg: "#00AEEF",
+    subtitle: "Nature / Landscapes",
+    title: "Lovely Pack",
+    tagline: "fresh / vibrant / scenic",
+    cta: "View",
+    bg: "#00AEEF",
   },
-  // … додай ще слайди
 ];
 
 export default function HeroBanner() {
@@ -48,7 +52,11 @@ export default function HeroBanner() {
                 <p className="slide__tag">{s.tagline}</p>
                 <button className="btn">{s.cta}</button>
               </div>
-              <img src={banner} alt={s.title} className="slide__img" />
+              <img
+                src="https://picsum.photos/1600?random=11"
+                alt={s.title}
+                className="slide__img"
+              />
             </div>
           </SwiperSlide>
         ))}

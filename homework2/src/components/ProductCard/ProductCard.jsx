@@ -1,16 +1,20 @@
+// src/components/ProductCard/ProductCard.jsx
 import React, { createContext, useContext } from "react";
 import PropTypes from "prop-types";
 
-// Контекст, щоб під‑компоненти могли читати product, не приймаючи props
-export const ProductContext = createContext(null);
+// самі під-компоненти
+import Image from "./ProductCardImage";
+import Info from "./ProductCardInfo";
+import Actions from "./ProductCardActions";
 
+export const ProductContext = createContext(null);
 export const useProduct = () => useContext(ProductContext);
 
 export default function ProductCard({ product, children, className = "" }) {
   return (
     <ProductContext.Provider value={product}>
       <div
-        className={`rounded-xl bg-white shadow hover:shadow-lg transition ${className}`}
+        className={`flex flex-col bg-white rounded-xl shadow hover:shadow-lg transition ${className}`}
       >
         {children}
       </div>
@@ -18,13 +22,28 @@ export default function ProductCard({ product, children, className = "" }) {
   );
 }
 
+/* 🔗 прив’язуємо під-компоненти до “головного” */
+ProductCard.Image = Image;
+ProductCard.Info = Info;
+ProductCard.Actions = Actions;
+
+/* (опційно) дефолт-розмітка, якщо children не передали */
+ProductCard.Default = function Default() {
+  const p = useProduct();
+  return (
+    <>
+      <Image />
+      <Info />
+      <Actions />
+    </>
+  );
+};
+
 ProductCard.propTypes = {
-  product: PropTypes.shape({
-    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-    title: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-    getFormattedPrice: PropTypes.func.isRequired,
-  }).isRequired,
-  children: PropTypes.node.isRequired,
+  product: PropTypes.object.isRequired,
+  children: PropTypes.node,
   className: PropTypes.string,
+};
+ProductCard.defaultProps = {
+  children: <ProductCard.Default />,
 };

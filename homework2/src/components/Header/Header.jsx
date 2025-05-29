@@ -6,7 +6,7 @@ import "./Header.scss"; // глобальні стилі, не modules
 
 import logo from "./imgs/Logo.png";
 
-const navLinks = ["Shop", "Men", "Women", "Combos", "Joggers"];
+const navLinks = ["Landscapes", "Portraits", "Architecture", "Macro", "Urban"];
 
 export default function Header() {
   const { count: cartCount } = useCart();
@@ -32,8 +32,12 @@ export default function Header() {
 
         {/* пошук */}
         <div className="header__search">
-          <Search size={18} className="search__icon" />
-          <input type="text" placeholder="Search" className="search__input" />
+          <Search size={18} className="header__search-icon" />
+          <input
+            type="text"
+            placeholder="Search"
+            className="header__search-input"
+          />
         </div>
 
         {/* іконки праворуч */}

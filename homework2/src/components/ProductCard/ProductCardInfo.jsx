@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { ProductContext } from "./ProductCard";
 
 export default function ProductCardInfo() {
-  // ❗️Беремо весь product, щоб не втратити контекст this
   const product = useContext(ProductContext);
   const { title } = product;
 
